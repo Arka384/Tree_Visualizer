@@ -5,34 +5,17 @@ Gui::Gui()
 	//XDDDD
 }
 
-Gui::Gui(BinaryTree& tree)
+void Gui::createVisualization(BinaryTree& tree)
 {
 	this->totalNodes = tree.getNodeCount();
 	this->height = tree.findHeight(tree.root);
 	this->maxGap = std::pow(2, height - 1) * 50;
 
-	std::cout << "\n" << totalNodes << " " << height << " " << maxGap;
-}
-
-sf::Vector2f Gui::getRootPos()
-{
-	return rootPos;
-}
-
-int Gui::getHeight()
-{
-	return this->height;
-}
-
-int Gui::getMaxGap()
-{
-	return this->maxGap;
+	generateStructure(tree.root, parentPos, rootPos, height, maxGap);
 }
 
 void Gui::generateStructure(Node* root, sf::Vector2f parentPos, sf::Vector2f pos, int height, int gap)
 {
-	/*if (root != nullptr && parent != nullptr)
-		std::cout << (int)root->getData() << " " << (int)parent->getData() << "\n";*/
 	if (root == nullptr)
 		return;
 	if (height == 0)
@@ -40,7 +23,6 @@ void Gui::generateStructure(Node* root, sf::Vector2f parentPos, sf::Vector2f pos
 	
 	//create node
 	sf::CircleShape node;
-	//c.setRadius((float)root->getData());
 	node.setRadius(10.f);
 	node.setOrigin(sf::Vector2f(node.getGlobalBounds().width / 2, node.getGlobalBounds().height / 2));
 	node.setPosition(pos);
@@ -80,30 +62,6 @@ void Gui::generateStructure(Node* root, sf::Vector2f parentPos, sf::Vector2f pos
 	generateStructure(root->right, parentPos, rightPos, height - 1, gap/2);
 
 }
-
-//void Gui::generateStructure(Node* root)
-//{
-//	if (root == nullptr)
-//		return;
-//	Node* t = root;
-//
-//	std::stack<Node*> nodeStack;
-//	nodeStack.push(t);
-//
-//	while (!nodeStack.empty()) {
-//		Node* x = nodeStack.top();
-//
-//
-//
-//
-//		nodeStack.pop();
-//		if (x->left != nullptr)
-//			nodeStack.push(x->left);
-//		if (x->right != nullptr)
-//			nodeStack.push(x->right);
-//	}
-//
-//}
 
 void Gui::renderTree(sf::RenderWindow& window)
 {

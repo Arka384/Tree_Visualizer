@@ -1,5 +1,3 @@
-#include <iostream>
-#include <SFML/Graphics.hpp>
 #include "Gui.hpp"
 #include "Loader.hpp"
 
@@ -9,13 +7,13 @@ int main()
 
 	BinaryTree* tree = new BinaryTree();
 	Loader* loader = new Loader();
-	loader->generateTree(*tree);
-	tree->Inorder(tree->root);
+	loader->loadTraversals();
 
-	Gui* gui = new Gui(*tree);
-	Node* par = nullptr;
-	sf::Vector2f temp = sf::Vector2f(0, 0);
-	gui->generateStructure(tree->root, temp, gui->getRootPos(), gui->getHeight(), gui->getMaxGap());
+	loader->generateTree(*tree);
+
+	Gui* gui = new Gui();
+	gui->createVisualization(*tree);
+	
 
 	while (window.isOpen()) {
 		sf::Event e;

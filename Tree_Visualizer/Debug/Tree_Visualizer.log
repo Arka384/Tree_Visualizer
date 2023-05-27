@@ -1,4 +1,10 @@
-﻿  Loader.cpp
+﻿  Gui.cpp
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Tree_Visualizer\Tree_Visualizer\Gui.cpp(12,41): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Tree_Visualizer\Tree_Visualizer\Gui.cpp(37,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Tree_Visualizer\Tree_Visualizer\Gui.cpp(39,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Tree_Visualizer\Tree_Visualizer\Gui.cpp(54,18): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Tree_Visualizer\Tree_Visualizer\Gui.cpp(56,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Loader.cpp
   main.cpp
   Generating Code...
   Tree_Visualizer.vcxproj -> C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Tree_Visualizer\Debug\Tree_Visualizer.exe

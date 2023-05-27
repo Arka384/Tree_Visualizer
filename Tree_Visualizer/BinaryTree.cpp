@@ -1,11 +1,10 @@
 #include "BinaryTree.hpp"
 
-BinaryTree::BinaryTree()
-{
+BinaryTree::BinaryTree() {
 	this->root = nullptr;
 }
 
-Node* BinaryTree::buildTree(std::vector<char>& inorder, std::vector<char>& preorder, int start, int end, int& preIndex)
+Node* BinaryTree::buildTree(std::vector<int>& inorder, std::vector<int>& preorder, int start, int end, int& preIndex)
 {
     nodeCount = end + 1;
     if (start > end)
@@ -20,7 +19,7 @@ Node* BinaryTree::buildTree(std::vector<char>& inorder, std::vector<char>& preor
     return t;
 }
 
-int BinaryTree::search(std::vector<char>& arr, int start, int end, char data)
+int BinaryTree::search(std::vector<int>& arr, int start, int end, int data)
 {
     for (int i = start; i <= end; i++) {
         if (arr[i] == data)

@@ -13,8 +13,8 @@ public:
 	Node* root;
 
 	BinaryTree();
-	Node* buildTree(std::vector<char>& inorder, std::vector<char>& preorder, int start, int end, int& preIndex);
-	int search(std::vector<char>&, int, int, char);
+	Node* buildTree(std::vector<int>& inorder, std::vector<int>& preorder, int start, int end, int& preIndex);
+	int search(std::vector<int>&, int, int, int);
 	int findHeight(Node* root);
 
 	void Inorder(Node* );

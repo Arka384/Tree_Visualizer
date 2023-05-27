@@ -1,11 +1,17 @@
 #pragma once
 #include "BinaryTree.hpp"
+#include <string>
+#include <sstream>
+#include <iostream>
+#include <fstream>
 
 class Loader
 {
 private:
-	std::vector<char> inorder{ 16, 8, 2, 12, 10, 15, 5, 4, 20, 6 };
-	std::vector<char> preorder {10, 2, 8, 16, 12, 20, 5, 15, 4, 6};
+	std::vector<int> inorder;
+	std::vector<int> preorder;
+	/*std::vector<char> inorder{ 16, 8, 2, 12, 10, 15, 5, 4, 20, 6 };
+	std::vector<char> preorder {10, 2, 8, 16, 12, 20, 5, 15, 4, 6};*/
 
 	/*std::vector<char> inorder{ 8,4,9,2,10,5,11,1,12,6,13,3,14,7,15 };
 	std::vector<char> preorder { 1,2,4,8,9,5,10,11,3,6,12,13,7,14,15 };*/
@@ -17,9 +23,8 @@ private:
 public:
 	Loader();
 
+	void loadTraversals();
 	void generateTree(BinaryTree& binaryTree);
-	std::vector<char>& getInorder();
-	std::vector<char>& getPreorder();
 	int& getPreIndex();
 
 };
