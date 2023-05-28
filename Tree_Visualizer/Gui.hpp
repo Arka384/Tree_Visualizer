@@ -5,9 +5,13 @@
 #include <stack>
 #include <list>
 
+#include <thread>
+#include <chrono>
+
 class Gui
 {
 private:
+	bool generated = false;
 	int totalNodes = 0;
 	int height = 0;
 	int maxGap = 0;
@@ -27,6 +31,8 @@ private:
 public:
 	Gui();
 	
+	bool isGenerated();
+	void setGenereated(bool flag);
 	void createVisualization(BinaryTree& tree, const sf::Vector2i& windowSize);
 	void generateStructure(Node* root, sf::Vector2f parentPos, sf::Vector2f pos, int height, int gap);
 	void renderTree(sf::RenderWindow& window);

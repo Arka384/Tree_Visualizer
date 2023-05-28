@@ -1,10 +1,17 @@
 #include "Gui.hpp"
 
-Gui::Gui()
-{
+Gui::Gui() {
 	//XDDDD
 	if (!this->nodeValuefont.loadFromFile("res/fonts/comic_sans.ttf"))
 		exit(1);
+}
+
+bool Gui::isGenerated() {
+	return generated;
+}
+
+void Gui::setGenereated(bool flag) {
+	this->generated = flag;
 }
 
 void Gui::createVisualization(BinaryTree& tree, const sf::Vector2i& windowSize)
@@ -15,6 +22,7 @@ void Gui::createVisualization(BinaryTree& tree, const sf::Vector2i& windowSize)
 	this->rootPos = sf::Vector2f(windowSize.x / 2, 50);
 
 	generateStructure(tree.root, parentPos, rootPos, height, maxGap);
+	generated = true;
 }
 
 void Gui::generateStructure(Node* root, sf::Vector2f parentPos, sf::Vector2f pos, int height, int gap)
@@ -24,6 +32,7 @@ void Gui::generateStructure(Node* root, sf::Vector2f parentPos, sf::Vector2f pos
 	if (height == 0)
 		return;
 	
+	std::this_thread::sleep_for(std::chrono::milliseconds(300)); //take it slow boiiii....
 	//create node
 	sf::CircleShape node;
 	node.setFillColor(nodeColor);

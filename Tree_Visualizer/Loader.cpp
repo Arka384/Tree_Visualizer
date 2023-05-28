@@ -8,6 +8,8 @@ void Loader::loadTraversals()
 {
 	int data, size, i = 0;
 	std::ifstream input("input/input.txt");
+	if (!input.is_open())
+		exit(1);
 	input >> size;
 	while (i < size) {
 		input >> data;

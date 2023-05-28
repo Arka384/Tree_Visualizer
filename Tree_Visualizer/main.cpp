@@ -8,12 +8,12 @@ int main()
 
 	BinaryTree* tree = new BinaryTree();
 	Loader* loader = new Loader();
-	loader->loadTraversals();
+	Gui* gui = new Gui();
 
+	loader->loadTraversals();
 	loader->generateTree(*tree);
 
-	Gui* gui = new Gui();
-	gui->createVisualization(*tree, windowSize);
+	std::thread v_thread(&Gui::createVisualization, gui, std::ref(*tree), std::ref(windowSize));
 	
 
 	while (window.isOpen()) {
@@ -28,10 +28,17 @@ int main()
 			}
 		}
 
+		if (gui->isGenerated()) {
+			gui->setGenereated(false);
+			v_thread.join();
+		}
+
 
 		window.clear();
 		gui->renderTree(window);
 		window.display();
 
 	}
+
+	v_thread.join();	//extreme case, ended abruptly before completion
 }
