@@ -1,9 +1,28 @@
 #include "Gui.hpp"
 
-Gui::Gui() {
+Gui::Gui(const sf::Vector2i& windowSize) {
 	//XDDDD
+	this->viewSize = sf::Vector2f(windowSize.x, windowSize.y);
+	view.setSize(viewSize);
+	view.setCenter(viewSize.x / 2, viewSize.y / 2);
+
 	if (!this->nodeValuefont.loadFromFile("res/fonts/comic_sans.ttf"))
 		exit(1);
+}
+
+sf::View& Gui::getView() {
+	return std::ref(this->view);
+}
+
+void Gui::updateView(const sf::Vector2i& mousePos, const sf::Vector2i& lastMousePos, float dt)
+{
+	float dx = mousePos.x - lastMousePos.x;
+	float dy = mousePos.y - lastMousePos.y;
+
+	float offsetX = -(dx * viewMoveFactor * dt);
+	float offsetY = -(dy * viewMoveFactor * dt);
+	
+	this->view.move(offsetX, offsetY);
 }
 
 bool Gui::isGenerated() {
@@ -32,7 +51,7 @@ void Gui::generateStructure(Node* root, sf::Vector2f parentPos, sf::Vector2f pos
 	if (height == 0)
 		return;
 	
-	std::this_thread::sleep_for(std::chrono::milliseconds(300)); //take it slow boiiii....
+	//std::this_thread::sleep_for(std::chrono::milliseconds(300));
 	//create node
 	sf::CircleShape node;
 	node.setFillColor(nodeColor);

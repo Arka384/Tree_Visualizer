@@ -19,6 +19,11 @@ private:
 	sf::Vector2f parentPos = sf::Vector2f(0, 0);
 	sf::Vector2f rootPos = sf::Vector2f(0, 0);
 
+	float viewMoveFactor = 0.002;
+	sf::View view;
+	sf::Vector2f viewSize;
+	sf::Vector2f viewCenter;
+
 	float nodeSize = 18.f;
 	float edgeWidth = 5.f;
 	sf::Color nodeColor = sf::Color::Red;
@@ -29,8 +34,10 @@ private:
 	std::list<sf::Text> nodeValues;
 
 public:
-	Gui();
+	Gui(const sf::Vector2i& windowSize);
 	
+	sf::View& getView();
+	void updateView(const sf::Vector2i& mousePos, const sf::Vector2i& lastMousePos, float dt);
 	bool isGenerated();
 	void setGenereated(bool flag);
 	void createVisualization(BinaryTree& tree, const sf::Vector2i& windowSize);
