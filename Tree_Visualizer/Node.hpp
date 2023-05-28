@@ -2,12 +2,12 @@
 class Node
 {
 private:
-	char data;
+	int data;
 public:
     Node* left;
     Node* right;
     Node();
-    Node(char data);
-    char getData(void);
+    Node(int data);
+    int getData(void);
 };
 

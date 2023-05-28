@@ -3,7 +3,8 @@
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Tree test", sf::Style::Close);
+	const sf::Vector2i windowSize = sf::Vector2i(1280, 720);
+	sf::RenderWindow window(sf::VideoMode(windowSize.x, windowSize.y), "Tree test", sf::Style::Close);
 
 	BinaryTree* tree = new BinaryTree();
 	Loader* loader = new Loader();
@@ -12,7 +13,7 @@ int main()
 	loader->generateTree(*tree);
 
 	Gui* gui = new Gui();
-	gui->createVisualization(*tree);
+	gui->createVisualization(*tree, windowSize);
 	
 
 	while (window.isOpen()) {

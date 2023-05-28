@@ -7,14 +7,14 @@ Node::Node()
     this->left = nullptr;
 }
 
-Node::Node(char data)
+Node::Node(int data)
 {
     this->data = data;
     this->right = nullptr;
     this->left = nullptr;
 }
 
-char Node::getData(void)
+int Node::getData(void)
 {
     return this->data;
 }
