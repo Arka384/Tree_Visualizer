@@ -51,7 +51,7 @@ void Gui::generateStructure(Node* root, sf::Vector2f parentPos, sf::Vector2f pos
 	if (height == 0)
 		return;
 	
-	//std::this_thread::sleep_for(std::chrono::milliseconds(300));
+	std::this_thread::sleep_for(std::chrono::milliseconds(300));
 	//create node
 	sf::CircleShape node;
 	node.setFillColor(nodeColor);
